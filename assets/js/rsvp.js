@@ -91,32 +91,32 @@ async function submitRSVP() {
     }
 }
 
-document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
+// document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
+//     event.preventDefault();
 
-    const formData = {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value,
-        attending_ceremony: document.getElementById("ceremony").checked,
-        attending_reception: document.getElementById("reception").checked
-    };
+//     const formData = {
+//         name: document.getElementById("name").value,
+//         phone: document.getElementById("phone").value,
+//         email: document.getElementById("email").value,
+//         attending_ceremony: document.getElementById("ceremony").checked,
+//         attending_reception: document.getElementById("reception").checked
+//     };
 
-    try {
-        const response = await fetch("http://localhost:5000/rsvp", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
+//     try {
+//         const response = await fetch("http://localhost:5000/rsvp", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(formData)
+//         });
 
-        const data = await response.json();
-        alert(data.message);  // Show success message
-    } catch (error) {
-        console.error("Error submitting RSVP:", error);
-    }
-});
+//         const data = await response.json();
+//         alert(data.message);  // Show success message
+//     } catch (error) {
+//         console.error("Error submitting RSVP:", error);
+//     }
+// });
 
-const API_URL = "https://wedding-api.onrender.com/rsvp"; // Replace with your backend URL
+const API_URL = "https://wedding-backend-kiny.onrender.com"; // Replace with your backend URL
 
 document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
     event.preventDefault();
