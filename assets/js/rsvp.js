@@ -1,5 +1,5 @@
-const SUPABASE_URL = "https://your-supabase-url.supabase.co";
-const SUPABASE_ANON_KEY = "your-anon-key";
+const SUPABASE_URL = env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY;
 
 async function fetchGuestDetails() {
     const inviteCode = document.getElementById("inviteCode").value.trim();
@@ -90,3 +90,55 @@ async function submitRSVP() {
         alert("Error submitting RSVP. Please try again.");
     }
 }
+
+document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        attending_ceremony: document.getElementById("ceremony").checked,
+        attending_reception: document.getElementById("reception").checked
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/rsvp", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        alert(data.message);  // Show success message
+    } catch (error) {
+        console.error("Error submitting RSVP:", error);
+    }
+});
+
+const API_URL = "https://wedding-api.onrender.com/rsvp"; // Replace with your backend URL
+
+document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        attending_ceremony: document.getElementById("ceremony").checked,
+        attending_reception: document.getElementById("reception").checked
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        alert(data.message);
+    } catch (error) {
+        console.error("Error submitting RSVP:", error);
+    }
+});
