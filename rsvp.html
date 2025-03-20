@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <h1>RSVP</h1>
+
+    <label for="inviteCode">Enter Your Invite Code:</label>
+    <input type="text" id="inviteCode">
+    <button id="fetchRSVPBtn">Submit</button>
+
+    <div id="rsvpForm" style="display: none;">
+        <h2 id="guestName"></h2>
+
+        <label for="guestEmail">Email:</label>
+        <input type="email" id="guestEmail" required>
+
+        <label for="guestPhone">Phone Number:</label>
+        <input type="tel" id="guestPhone" required>
+
+        <p>Will you be attending?</p>
+        <label><input type="radio" name="attending" value="true"> Yes</label>
+        <label><input type="radio" name="attending" value="false"> No</label>
+
+        <div id="eventOptions">
+            <p>Which events will you attend?</p>
+            <label><input type="checkbox" id="ceremony"> Ceremony</label><br>
+            <label><input type="checkbox" id="henDo"> Hen Do</label><br>
+            <label><input type="checkbox" id="stagDo"> Stag Do</label><br>
+            <label><input type="checkbox" id="receptionDinner"> Reception Dinner</label>
+        </div>
+
+        <p>Meal Choice:</p>
+        <select id="mealChoice">
+            <option value="Chicken">Chicken</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Fish">Fish</option>
+        </select>
+
+        <p>Special Requests:</p>
+        <textarea id="specialRequests"></textarea>
+
+        <button id="submitRSVPBtn">Submit RSVP</button>
+    </div>
+
+    <script src="assets/js/rsvp.js"></script>
+</body>
+</html>
