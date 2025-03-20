@@ -116,7 +116,7 @@ async function submitRSVP() {
 //     }
 // });
 
-const API_URL = "https://wedding-backend-kiny.onrender.com"; // Replace with your backend URL
+const API_URL = "https://wedding-backend-kiny.onrender.com/rsvp"; // Replace with your backend URL
 
 document.getElementById("rsvp-form").addEventListener("submit", async function (event) {
     event.preventDefault();
